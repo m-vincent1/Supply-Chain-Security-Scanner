@@ -4,6 +4,7 @@ import { api } from '../api'
 import type { ScanResult } from '../types'
 import SeverityBadge from '../components/SeverityBadge'
 import ScoreGauge from '../components/ScoreGauge'
+import VulnTypeBadge from '../components/VulnTypeBadge'
 import './Dashboard.css'
 import './ScanDetail.css'
 
@@ -64,7 +65,7 @@ export default function ScanDetail() {
           <table className="data-table">
             <thead>
               <tr>
-                <th>Package</th><th>Version</th><th>Severity</th><th>CVSS</th><th>ID</th><th>Summary</th>
+                <th>Package</th><th>Version</th><th>Severity</th><th>CVSS</th><th>Type</th><th>ID</th><th>Summary</th>
               </tr>
             </thead>
             <tbody>
@@ -74,8 +75,9 @@ export default function ScanDetail() {
                   <td>{v.installed_version || 'unknown'}</td>
                   <td><SeverityBadge severity={v.severity} size="sm" /></td>
                   <td>{v.cvss}</td>
+                  <td><VulnTypeBadge vulnType={v.vuln_type} /></td>
                   <td style={{ fontSize: '0.78rem', color: '#666' }}>{v.vulnerability_id}</td>
-                  <td style={{ fontSize: '0.85rem' }}>{v.summary.slice(0, 90)}</td>
+                  <td style={{ fontSize: '0.85rem' }}>{v.summary.slice(0, 80)}</td>
                 </tr>
               ))}
             </tbody>

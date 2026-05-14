@@ -51,6 +51,35 @@ class Component(BaseModel):
     is_pinned: bool = True
 
 
+class VulnType(str, Enum):
+    cve = "cve"
+    supply_chain_attack = "supply_chain_attack"
+    abandoned = "abandoned"
+    typosquatting = "typosquatting"
+
+
+class RemediationType(str, Enum):
+    upgrade = "upgrade"
+    remove = "remove"
+    migrate = "migrate"
+    pin_safe_version = "pin_safe_version"
+
+
+VULN_TYPE_LABELS: dict[str, str] = {
+    "cve": "CVE",
+    "supply_chain_attack": "Supply Chain Attack",
+    "abandoned": "Abandoned Package",
+    "typosquatting": "Typosquatting",
+}
+
+REMEDIATION_TYPE_LABELS: dict[str, str] = {
+    "upgrade": "Upgrade",
+    "remove": "Remove immediately",
+    "migrate": "Migrate to alternative",
+    "pin_safe_version": "Pin safe version",
+}
+
+
 class VulnerabilityEntry(BaseModel):
     id: str
     package: str
@@ -58,6 +87,8 @@ class VulnerabilityEntry(BaseModel):
     affected_versions: str
     severity: Severity
     cvss: float
+    vuln_type: VulnType = VulnType.cve
+    remediation_type: RemediationType = RemediationType.upgrade
     summary: str
     recommendation: str
     references: list[str] = Field(default_factory=list)
@@ -70,6 +101,8 @@ class DetectedVulnerability(BaseModel):
     ecosystem: Ecosystem
     severity: Severity
     cvss: float
+    vuln_type: VulnType = VulnType.cve
+    remediation_type: RemediationType = RemediationType.upgrade
     summary: str
     recommendation: str
     affected_versions: str

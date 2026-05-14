@@ -77,14 +77,18 @@ _TEMPLATE = """<!DOCTYPE html>
   {% if result.vulnerabilities %}
   <h2>Detected Vulnerabilities</h2>
   <table>
-    <thead><tr><th>Package</th><th>Version</th><th>Severity</th><th>CVSS</th><th>ID</th><th>Summary</th></tr></thead>
+    <thead><tr><th>Package</th><th>Version</th><th>Severity</th><th>CVSS</th><th>Type</th><th>ID</th><th>Summary</th></tr></thead>
     <tbody>
+    {% set type_labels = {"cve": "CVE", "supply_chain_attack": "Supply Chain Attack", "abandoned": "Abandoned", "typosquatting": "Typosquatting"} %}
+    {% set type_colors = {"cve": "#3b82f6", "supply_chain_attack": "#7c3aed", "abandoned": "#64748b", "typosquatting": "#b45309"} %}
     {% for v in result.vulnerabilities | sort(attribute='cvss', reverse=True) %}
+    {% set vt = v.vuln_type.value if v.vuln_type else 'cve' %}
     <tr>
       <td><strong>{{ v.package }}</strong></td>
       <td>{{ v.installed_version or 'unknown' }}</td>
       <td><span class="badge badge-{{ v.severity.value }}">{{ v.severity.value.upper() }}</span></td>
       <td>{{ v.cvss }}</td>
+      <td><span style="font-size:0.78rem;font-weight:600;color:{{ type_colors.get(vt, '#333') }};">{{ type_labels.get(vt, vt) }}</span></td>
       <td style="font-size:0.8rem;">{{ v.vulnerability_id }}</td>
       <td style="font-size:0.85rem;">{{ v.summary[:100] }}</td>
     </tr>

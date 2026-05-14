@@ -38,13 +38,21 @@ def generate_markdown_report(result: ScanResult, output_path: Path | None = None
         lines += [
             "## Detected Vulnerabilities",
             "",
-            "| Package | Version | Severity | CVSS | ID | Summary |",
-            "|---|---|---|---|---|---|",
+            "| Package | Version | Severity | CVSS | Type | ID | Summary |",
+            "|---|---|---|---|---|---|---|",
         ]
+        _TYPE_LABELS = {
+            "cve": "CVE",
+            "supply_chain_attack": "Supply Chain Attack",
+            "abandoned": "Abandoned",
+            "typosquatting": "Typosquatting",
+        }
         for v in sorted(r.vulnerabilities, key=lambda x: x.cvss, reverse=True):
+            type_label = _TYPE_LABELS.get(v.vuln_type.value if hasattr(v.vuln_type, 'value') else str(v.vuln_type), str(v.vuln_type))
             lines.append(
                 f"| {v.package} | {v.installed_version or 'unknown'} | "
                 f"{v.severity.value.upper()} | {v.cvss} | "
+                f"{type_label} | "
                 f"{v.vulnerability_id} | {v.summary[:80]} |"
             )
         lines.append("")

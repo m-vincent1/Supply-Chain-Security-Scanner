@@ -7,10 +7,15 @@
     "express": "4.17.0",
     "axios": "1.4.0",
     "jsonwebtoken": "8.5.1",
-    "minimist": "1.2.5"
+    "minimist": "1.2.5",
+    "event-stream": "3.3.6",
+    "request": "2.88.2",
+    "serialize-javascript": "2.5.0",
+    "crossenv": "1.0.3"
   },
   "devDependencies": {
     "webpack": "5.70.0",
-    "moment": "2.29.3"
+    "moment": "2.29.3",
+    "node-ipc": "10.1.1"
   }
 }
