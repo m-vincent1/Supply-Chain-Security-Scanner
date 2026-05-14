@@ -52,3 +52,6 @@ Thumbs.db
 
 # Prompt file (local use only)
 prompt_supply_chain_security_scanner.md
+
+# Claude Code (local config only)
+.claude/
