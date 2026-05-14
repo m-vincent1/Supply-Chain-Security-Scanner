@@ -1,0 +1,9 @@
+django==3.2.0
+flask==2.2.0
+requests==2.27.0
+pillow==9.0.0
+pyyaml==5.4.0
+# a comment
+numpy==1.23.0
+cryptography==40.0.0
+sqlalchemy==1.4.40

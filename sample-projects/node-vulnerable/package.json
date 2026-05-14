@@ -1,0 +1,16 @@
+{
+  "name": "node-vulnerable",
+  "version": "1.0.0",
+  "description": "Sample Node.js project with vulnerable dependencies — for scanner demonstration",
+  "dependencies": {
+    "lodash": "4.17.20",
+    "express": "4.17.0",
+    "axios": "1.4.0",
+    "jsonwebtoken": "8.5.1",
+    "minimist": "1.2.5"
+  },
+  "devDependencies": {
+    "webpack": "5.70.0",
+    "moment": "2.29.3"
+  }
+}

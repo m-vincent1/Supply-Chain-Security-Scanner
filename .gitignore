@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Node.js
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Reports (keep directory, ignore generated files)
+reports/*.json
+reports/*.html
+reports/*.md
+reports/*.pdf
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Distribution
+*.tar.gz
+*.zip
+
+# Prompt file (local use only)
+prompt_supply_chain_security_scanner.md

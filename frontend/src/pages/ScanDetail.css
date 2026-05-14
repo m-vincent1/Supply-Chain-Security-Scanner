@@ -1,0 +1,47 @@
+.scan-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.rem-list { display: flex; flex-direction: column; gap: 12px; }
+
+.rem-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  background: #fafbfc;
+}
+
+.rem-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.rem-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 8px;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
+}
+
+.rem-row span:first-child { color: #666; font-weight: 500; }
+
+.rem-cmd {
+  margin-top: 8px;
+  background: #1a1a2e;
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.rem-cmd code {
+  color: #a5f3fc;
+  font-size: 0.85rem;
+  background: none;
+}

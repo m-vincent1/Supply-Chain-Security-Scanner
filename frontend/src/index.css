@@ -1,0 +1,25 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+
+:root {
+  --color-critical: #c0392b;
+  --color-high: #d35400;
+  --color-medium: #b7791f;
+  --color-low: #276749;
+  --color-bg-critical: #fde8e8;
+  --color-bg-high: #fef3e0;
+  --color-bg-medium: #fff8e1;
+  --color-bg-low: #e6f4ea;
+  --sidebar-width: 220px;
+  --header-height: 56px;
+  --border: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
